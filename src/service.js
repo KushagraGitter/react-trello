@@ -2,7 +2,7 @@ const getSubProjects = (projectId) => {
   const data = [
     {
       subProjectId: 1,
-      subProjectName: 'subProjName1',
+      subProjectName: 'To Do',
       tasks: [
         {
           taskId: 1,
@@ -20,7 +20,7 @@ const getSubProjects = (projectId) => {
     },
     {
       subProjectId: 2,
-      subProjectName: 'subProjName2',
+      subProjectName: 'Doing',
       tasks: [
         {
           taskId: 1,
@@ -32,7 +32,7 @@ const getSubProjects = (projectId) => {
     },
     {
       subProjectId: 3,
-      subProjectName: 'sub project 3',
+      subProjectName: 'Done',
       tasks: [
         {
           taskId: 1,
@@ -51,78 +51,6 @@ const getSubProjects = (projectId) => {
           taskName: 'Intigration',
           assignedTo: 'Jack',
           status: 'Done',
-        },
-      ],
-    },
-    {
-      subProjectId: 1,
-      subProjectName: 'subProjName1',
-      tasks: [
-        {
-          taskId: 1,
-          taskName: 'task1',
-          assignedTo: 'Mark',
-          status: 'Pending',
-        },
-        {
-          taskId: 2,
-          taskName: 'task2',
-          assignedTo: 'Justin',
-          status: 'Pending',
-        },
-      ],
-    },
-    {
-      subProjectId: 1,
-      subProjectName: 'subProjName1',
-      tasks: [
-        {
-          taskId: 1,
-          taskName: 'task1',
-          assignedTo: 'Mark',
-          status: 'Pending',
-        },
-        {
-          taskId: 2,
-          taskName: 'task2',
-          assignedTo: 'Justin',
-          status: 'Pending',
-        },
-      ],
-    },
-    {
-      subProjectId: 1,
-      subProjectName: 'subProjName1',
-      tasks: [
-        {
-          taskId: 1,
-          taskName: 'task1',
-          assignedTo: 'Mark',
-          status: 'Pending',
-        },
-        {
-          taskId: 2,
-          taskName: 'task2',
-          assignedTo: 'Justin',
-          status: 'Pending',
-        },
-      ],
-    },
-    {
-      subProjectId: 1,
-      subProjectName: 'subProjName1',
-      tasks: [
-        {
-          taskId: 1,
-          taskName: 'task1',
-          assignedTo: 'Mark',
-          status: 'Pending',
-        },
-        {
-          taskId: 2,
-          taskName: 'task2',
-          assignedTo: 'Justin',
-          status: 'Pending',
         },
       ],
     },
