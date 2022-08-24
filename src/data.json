@@ -1,0 +1,38 @@
+{
+  "borad": {
+    "id": 1,
+    "boardName": "Baord1",
+    "projects": [
+      {
+        "projectId": 1,
+        "projectName": "proj1",
+        "subProjects": [
+          {
+            "subProjectId": 1,
+            "subProjectName": "subProjName1",
+            "tasks": [
+              {
+                "taskId": 1,
+                "taskName": "task1",
+                "participents": [],
+                "status": "inProgress"
+              }
+            ]
+          },
+          {
+            "subProjectId": 2,
+            "subProjectName": "subProjName2",
+            "tasks": [
+              {
+                "taskId": 1,
+                "taskName": "task1",
+                "participents": [],
+                "status": "inProgress"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
