@@ -54,6 +54,78 @@ const getSubProjects = (projectId) => {
         },
       ],
     },
+    {
+      subProjectId: 1,
+      subProjectName: 'subProjName1',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
+    {
+      subProjectId: 1,
+      subProjectName: 'subProjName1',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
+    {
+      subProjectId: 1,
+      subProjectName: 'subProjName1',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
+    {
+      subProjectId: 1,
+      subProjectName: 'subProjName1',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
   ];
   const projectPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
