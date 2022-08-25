@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Task = ({ taskName, assignedTo, status }) => {
+  const [isDragging, setDragging] = useState(false);
   function handleDragStart(event) {
-    event.target.classList.add('dragging');
+    setDragging(true);
   }
 
   function handleDragEnd(event) {
-    event.target.classList.remove('dragging');
+    setDragging(false);
   }
   return (
     <li
-      className="task-item"
+      className={`task-item ${isDragging ? 'dragging' : ''}`}
       draggable={true}
       onDragStart={(e) => handleDragStart(e)}
       onDragEnd={(e) => handleDragEnd(e)}
