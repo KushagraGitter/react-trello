@@ -52,6 +52,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor: move;
+  opacity: 1;
+}
+
+.task-item.dragging {
+  opacity: 0.1;
 }
 
 .task-status-Pending {

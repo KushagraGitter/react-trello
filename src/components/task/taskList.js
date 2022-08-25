@@ -7,8 +7,14 @@ const TaskList = ({ taskList }) => {
   //   //respone of API
   //   setTaskList()
   // })
+  function handleDragOver(e) {
+    e.preventDefault();
+    const draggedElement = document.querySelector('.dragging');
+    e.currentTarget.appendChild(draggedElement);
+    console.log(draggedElement);
+  }
   return (
-    <ul className="taskList">
+    <ul className="taskList" onDragOver={(e) => handleDragOver(e)}>
       {taskList.map((task) => {
         return <Task key={task.taskId} {...task} />;
       })}
