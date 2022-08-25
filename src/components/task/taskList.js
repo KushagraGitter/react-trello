@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Task from './task.js';
 
 const TaskList = ({ taskList }) => {
-
   function handleDragOver(e) {
     e.preventDefault();
     const draggedElement = document.querySelector('.dragging');

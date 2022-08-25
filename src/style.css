@@ -79,3 +79,19 @@ body {
   background-color: green;
   border-radius: 10px;
 }
+
+.add-task-button-visible {
+  display: inline;
+}
+
+.add-task-button-not-visible {
+  display: none;
+}
+
+.add-task-text-visible {
+  display: inline;
+}
+
+.add-task-text-not-visible {
+  display: none;
+}
