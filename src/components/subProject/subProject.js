@@ -13,15 +13,12 @@ function SubProject({ subProjectId, subProjectName, tasks }) {
       <h2>{subProjectName}</h2>
       {/*  to-do create a new component to render task  */}
       <TaskList taskList={tasks} />
-      <AddTask
-        addTask={handleAddTask}
-        className={`add-task-button-${!isAddTask ? 'not-visible' : 'visible'}`}
-      />
+      <AddTask addTask={handleAddTask} isAddTask={isAddTask} />
       <textarea
         className={`add-task-text-${isAddTask ? 'visible' : 'not-visible'}`}
         name="add-task-text"
         cols="30"
-        rows="10"
+        rows="2"
         visible={isAddTask}
       ></textarea>
     </div>
