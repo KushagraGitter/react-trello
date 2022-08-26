@@ -1,30 +1,13 @@
 import React, { useState } from 'react';
-import Task from './task.js';
 
-const TaskList = ({
-  taskList,
-  grpId,
-  isDragging,
-  handleDnDEnter,
-  handleDragStart,
-}) => {
+const TaskList = ({ taskList, grpId, handleDnDEnter, children }) => {
+  console.log('children:', children);
   return (
     <ul
       className="taskList"
       onDragEnter={(e) => handleDnDEnter(e, { grpId: grpId })}
     >
-      {taskList.map((task) => {
-        return (
-          <Task
-            key={task.taskId}
-            {...task}
-            grpId={grpId}
-            isDragging={isDragging}
-            isDragging={isDragging}
-            handleDragStart={handleDragStart}
-          />
-        );
-      })}
+      {children}
     </ul>
   );
 };
