@@ -15,9 +15,7 @@ const Task = ({
       draggable={true}
       onDragStart={(e) => handleDragStart(e, { grpId: grpId, taskId: taskId })}
     >
-      <h3>{taskName}</h3>
-      <div className={`task-status-${status}`}></div>
-      <div>{assignedTo}</div>
+      <p>{taskName}</p>
     </li>
   );
 };

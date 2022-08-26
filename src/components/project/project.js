@@ -6,14 +6,7 @@ function Projects(id) {
   const [projectId, setProjectId] = useState(id);
   const [subProjects, setSubProjects] = useState([]);
 
-  // async function getSubProjectByID(id) {
-  //   const response = await getSubProjects(id);
-  //   return response;
-  // }
-
   useEffect(() => {
-    // to-do call the API to get the subprojects
-    //const subProj = getSubProjectByID(projectId);
     getSubProjects(id).then((data) => {
       setSubProjects(data);
     });
