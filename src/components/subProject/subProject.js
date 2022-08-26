@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TaskList from '../task/taskList.js';
 import AddTask from '../addTask/addTask';
-
-function SubProject({ subProjectId, subProjectName, tasks }) {
+import { getSubProjectTask } from '../../service';
+function SubProject({ subProjectId, subProjectName }) {
   const [isAddTask, setAddTask] = useState(false);
+  const [tasks, setTasks] = useState([]);
 
   function handleAddTask() {
     setAddTask(true);
   }
+
+  useEffect(() => {
+    getSubProjectTask(subProjectId).then((res) => {
+      setTasks(res);
+    });
+  }, subProjectId);
   return (
     <div class="sub-project">
       <h2>{subProjectName}</h2>

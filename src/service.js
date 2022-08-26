@@ -58,10 +58,58 @@ const getSubProjects = (projectId) => {
   const projectPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
-    }, 200);
+    }, 1000);
   });
 
   return projectPromise;
 };
 
-export default getSubProjects;
+const getSubProjectTask = (subProjectId) => {
+  const data = [
+    {
+      subProjectId: 1,
+      subProjectName: 'To Do',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
+    {
+      subProjectId: 2,
+      subProjectName: 'In Progress',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'task2',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+      ],
+    },
+  ];
+  const taskPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const tasks = data.filter((d) => d.subProjectId === subProjectId).tasks;
+      resolve(data);
+    }, 200);
+  });
+  return taskPromise;
+};
+
+export { getSubProjects, getSubProjectTask };

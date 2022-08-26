@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SubProject from '../subProject/subProject.js';
-import getSubProjects from '../../service.js';
+import { getSubProjects } from '../../service.js';
 
 function Projects(id) {
   const [projectId, setProjectId] = useState(id);
@@ -21,7 +21,7 @@ function Projects(id) {
 
   return (
     <div className="main-project">
-      <h1 class="project">Project 1</h1>
+      <h1 className="project">Project 1</h1>
       <div className="sub-project-container">
         {subProjects.map((subProject) => {
           return <SubProject key={subProject.id} {...subProject} />;
