@@ -92,21 +92,35 @@ const getSubProjectTask = (subProjectId) => {
           taskId: 1,
           taskName: 'task1',
           assignedTo: 'Mark',
-          status: 'Pending',
+          status: 'InProgress',
         },
         {
           taskId: 2,
           taskName: 'task2',
           assignedTo: 'Justin',
-          status: 'Pending',
+          status: 'InProgress',
+        },
+      ],
+    },
+    {
+      subProjectId: 3,
+      subProjectName: 'In Progress',
+      tasks: [
+        {
+          taskId: 1,
+          taskName: 'task1',
+          assignedTo: 'Mark',
+          status: 'Done',
         },
       ],
     },
   ];
   const taskPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      const tasks = data.filter((d) => d.subProjectId === subProjectId).tasks;
-      resolve(data);
+      const tasks = data.filter((d) => d.subProjectId === subProjectId)[0][
+        'tasks'
+      ];
+      resolve(tasks);
     }, 200);
   });
   return taskPromise;

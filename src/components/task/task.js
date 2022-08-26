@@ -1,25 +1,19 @@
 import React, { useState, useRef } from 'react';
 
-const Task = ({ taskName, assignedTo, status }) => {
-  const [isDragging, setDragging] = useState(false);
-  const dndNode = useRef();
-
-  function handleDragStart(event) {
-    setDragging(true);
-    dndNode.current = event.target;
-    dndNode.current.addEventListener('dragend', handleDragEnd);
-  }
-
-  function handleDragEnd(event) {
-    setDragging(false);
-    dndNode.current.removeEventListener('dragend', handleDragEnd);
-    dndNode.current = null;
-  }
+const Task = ({
+  taskId,
+  taskName,
+  assignedTo,
+  status,
+  grpId,
+  isDragging,
+  handleDragStart,
+}) => {
   return (
     <li
       className={`task-item ${isDragging ? 'dragging' : ''}`}
       draggable={true}
-      onDragStart={(e) => handleDragStart(e)}
+      onDragStart={(e) => handleDragStart(e, { grpId: grpId, taskId: taskId })}
     >
       <h3>{taskName}</h3>
       <div className={`task-status-${status}`}></div>
