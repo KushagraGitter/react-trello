@@ -6,13 +6,19 @@ const getSubProjects = (projectId) => {
       tasks: [
         {
           taskId: 1,
-          taskName: 'task1',
+          taskName: 'Creating HTML',
           assignedTo: 'Mark',
           status: 'Pending',
         },
         {
           taskId: 2,
-          taskName: 'task2',
+          taskName: 'Creating CSS',
+          assignedTo: 'Justin',
+          status: 'Pending',
+        },
+        {
+          taskId: 2,
+          taskName: 'Creating JavaScript',
           assignedTo: 'Justin',
           status: 'Pending',
         },
@@ -24,7 +30,7 @@ const getSubProjects = (projectId) => {
       tasks: [
         {
           taskId: 1,
-          taskName: 'task1',
+          taskName: 'adding styles',
           assignedTo: 'Sam',
           status: 'InProgress',
         },

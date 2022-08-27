@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 const Task = ({
   className,
   taskId,
+  idx,
   taskName,
   assignedTo,
   status,
@@ -15,10 +16,10 @@ const Task = ({
     <li
       className={className}
       draggable={true}
-      onDragStart={(e) => handleDragStart(e, { grpId: grpId, taskId: taskId })}
+      onDragStart={(e) => handleDragStart(e, { grpId: grpId, taskId: idx })}
       onDragEnter={
         isDragging
-          ? (e) => handleDnDEnter(e, { grpId: grpId, taskId: taskId })
+          ? (e) => handleDnDEnter(e, { grpId: grpId, taskId: idx })
           : null
       }
     >

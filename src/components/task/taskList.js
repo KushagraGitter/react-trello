@@ -11,7 +11,7 @@ const TaskList = ({
     <ul
       className="taskList"
       onDragEnter={
-        isDragging && !taskList.length
+        isDragging && !children.length
           ? (e) => handleDnDEnter(e, { grpId: grpId, taskId: 0 })
           : null
       }

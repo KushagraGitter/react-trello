@@ -21,7 +21,13 @@ function Projects(projectId) {
     if (e.target !== dndNode.current) {
       console.log(('drag enter', params));
       //let newSubProjectList = [...subProjects];
+
       let newSubProjectList = JSON.parse(JSON.stringify(subProjects));
+      console.log('drop container', newSubProjectList[params.grpId]);
+      console.log(
+        'from container',
+        newSubProjectList[dndNodeParams.current.grpId]
+      );
       newSubProjectList[params.grpId].tasks.splice(
         params.taskId,
         0,
@@ -58,7 +64,7 @@ function Projects(projectId) {
       params.grpId === dndNodeParams.current.grpId &&
       params.taskId === dndNodeParams.current.taskId
     ) {
-      return `task-item ${isDragging} ? 'dragging' : ''`;
+      return `task-item ${isDragging ? 'dragging' : ''}`;
     } else {
       return 'task-item';
     }
@@ -75,6 +81,7 @@ function Projects(projectId) {
                 {subProject.tasks.map((task, idx) => {
                   return (
                     <Task
+                      key={task.taskName}
                       className={
                         isDragging
                           ? getStyle({
@@ -84,7 +91,7 @@ function Projects(projectId) {
                           : 'task-item'
                       }
                       grpId={projIdx}
-                      taskId={idx}
+                      idx={idx}
                       handleDragStart={handleDragStart}
                       handleDnDEnter={handleDnDEnter}
                       isDragging={isDragging}
