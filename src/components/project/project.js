@@ -15,53 +15,78 @@ function Projects(projectId) {
     getSubProjects(projectId).then((data) => {
       setSubProjects(data);
     });
-  }, [projectId]);
+  }, [projectId, setSubProjects]);
 
   const handleDnDEnter = (e, params) => {
-    console.log(('drag enter', params));
-    let newSubProjectList = [...subProjects];
-    newSubProjectList[params.grpId - 1].tasks.splice(
-      params.taskId - 1,
-      0,
-      newSubProjectList[dndNodeParams.current.grpId].tasks.splice(
-        dndNodeParams.current.taskId,
-        1
-      )[0]
-    );
-    setSubProjects(newSubProjectList);
+    if (e.target !== dndNode.current) {
+      console.log(('drag enter', params));
+      //let newSubProjectList = [...subProjects];
+      let newSubProjectList = JSON.parse(JSON.stringify(subProjects));
+      newSubProjectList[params.grpId].tasks.splice(
+        params.taskId,
+        0,
+        newSubProjectList[dndNodeParams.current.grpId].tasks.splice(
+          dndNodeParams.current.taskId,
+          1
+        )[0]
+      );
+
+      dndNodeParams.current = params;
+      setSubProjects(newSubProjectList);
+    }
   };
   const handleDragStart = (e, params) => {
-    dndNodeParams.current = params;
     dndNode.current = e.target;
-    setDragging(true);
-    dndNode.current.addEventListener('dragend', handleDragEnd());
-    console.log('params:', params);
+    dndNode.current.addEventListener('dragend', handleDragEnd);
+    dndNodeParams.current = params;
+    setTimeout(() => {
+      setDragging(true);
+    }, 0);
+    console.log('params: drag start', params);
   };
 
   const handleDragEnd = () => {
     setDragging(false);
     dndNode.current.removeEventListener('dragend', handleDragEnd);
-    console.log('params:', dndNodeParams);
+    console.log('params: dragEnd', dndNodeParams);
     dndNodeParams.current = null;
     dndNode.current = null;
+  };
+
+  const getStyle = (params) => {
+    if (
+      params.grpId === dndNodeParams.current.grpId &&
+      params.taskId === dndNodeParams.current.taskId
+    ) {
+      return `task-item ${isDragging} ? 'dragging' : ''`;
+    } else {
+      return 'task-item';
+    }
   };
 
   return (
     <div className="main-project">
       <h1 className="project">Project 1</h1>
       <div className="sub-project-container">
-        {subProjects.map((subProject) => {
+        {subProjects.map((subProject, projIdx) => {
           return (
             <SubProject key={subProject.subProjectId} {...subProject}>
-              <TaskList
-                handleDnDEnter={handleDnDEnter}
-                grpId={subProject.subProjectId}
-              >
-                {subProject.tasks.map((task) => {
+              <TaskList handleDnDEnter={handleDnDEnter} grpId={projIdx}>
+                {subProject.tasks.map((task, idx) => {
                   return (
                     <Task
-                      grpId={subProject.subProjectId}
+                      className={
+                        isDragging
+                          ? getStyle({
+                              grpId: projIdx,
+                              taskId: idx,
+                            })
+                          : 'task-item'
+                      }
+                      grpId={projIdx}
+                      taskId={idx}
                       handleDragStart={handleDragStart}
+                      handleDnDEnter={handleDnDEnter}
                       isDragging={isDragging}
                       {...task}
                     />

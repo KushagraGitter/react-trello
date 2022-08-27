@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
 
-const TaskList = ({ taskList, grpId, handleDnDEnter, children }) => {
-  console.log('children:', children);
+const TaskList = ({
+  taskList,
+  grpId,
+  handleDnDEnter,
+  children,
+  isDragging,
+}) => {
   return (
     <ul
       className="taskList"
-      onDragEnter={(e) => handleDnDEnter(e, { grpId: grpId })}
+      onDragEnter={
+        isDragging && !taskList.length
+          ? (e) => handleDnDEnter(e, { grpId: grpId, taskId: 0 })
+          : null
+      }
     >
       {children}
     </ul>
