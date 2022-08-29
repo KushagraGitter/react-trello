@@ -15,9 +15,23 @@ body {
   padding: 0;
 }
 
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px 0 20px;
+}
+
+.main-header > button {
+  height: 40px;
+  background-color: rgba(17, 165, 165, 0.253);
+  box-shadow: 2px 2px #004b6e77;
+  color: white;
+  border: none;
+}
+
 .main-project h1 {
   color: blanchedalmond;
-  padding: 20px;
 }
 
 .main-project .sub-project-container {
@@ -60,7 +74,7 @@ body {
 
 .task-item.dragging {
   background-color: black;
-  opacity: 0.1;
+  opacity: 0.5;
 }
 
 .task-status-Pending {

@@ -17,6 +17,8 @@ function Projects(projectId) {
     });
   }, [projectId, setSubProjects]);
 
+  const addProject = (e) => {};
+
   const handleDnDEnter = (e, params) => {
     if (e.target !== dndNode.current) {
       console.log(('drag enter', params));
@@ -72,7 +74,11 @@ function Projects(projectId) {
 
   return (
     <div className="main-project">
-      <h1 className="project">Project 1</h1>
+      <header class="main-header">
+        <h1 className="project">Project 1</h1>
+        <button onClick={(e) => addProject(e)}>Add Project</button>
+      </header>
+
       <div className="sub-project-container">
         {subProjects.map((subProject, projIdx) => {
           return (
