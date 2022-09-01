@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import SubProject from '../subProject/subProject.js';
 import TaskList from '../task/taskList.js';
 import Task from '../task/task.js';
 import { getSubProjects } from '../../service.js';
+import ThemeContext from '../../App.js';
 
 function Projects(projectId) {
   const [subProjects, setSubProjects] = useState([]);
@@ -10,6 +11,8 @@ function Projects(projectId) {
 
   const dndNode = useRef();
   const dndNodeParams = useRef();
+
+  const theme = useContext(ThemeContext);
 
   useEffect(() => {
     getSubProjects(projectId).then((data) => {
@@ -74,7 +77,7 @@ function Projects(projectId) {
 
   return (
     <div className="main-project">
-      <header class="main-header">
+      <header className={`main-header" ${theme}`}>
         <h1 className="project">Project 1</h1>
         <button onClick={(e) => addProject(e)}>Add Project</button>
       </header>

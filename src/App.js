@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, createContext } from 'react';
 import Project from './components/project/project.js';
 import './style.css';
-
+export const ThemeContext = createContext('light');
 export default function App() {
+  const [theme, setTheme] = useState('light');
+
   return (
     <div>
-      <Project id={1} />
+      <ThemeContext.Provider value={theme}>
+        <button onClick={(e) => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+          {theme}
+        </button>
+        <Project id={1} />
+      </ThemeContext.Provider>
     </div>
   );
 }
