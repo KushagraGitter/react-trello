@@ -22,7 +22,7 @@ body {
   padding: 0 20px 0 20px;
 }
 
-.main-header-dark {
+.main-header.dark {
   background-color: black;
 }
 

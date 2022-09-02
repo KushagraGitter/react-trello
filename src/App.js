@@ -1,8 +1,9 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
+import ThemeContext from './components/providers/ThemeContext.js';
 import Project from './components/project/project.js';
 import './style.css';
-export const ThemeContext = createContext('light');
-export default function App() {
+
+function App() {
   const [theme, setTheme] = useState('light');
 
   return (
@@ -16,6 +17,8 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
 
 //Functional Requirement
 // The app contains multiple boards to signify different projects
