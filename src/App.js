@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ThemeContext from './components/providers/ThemeContext.js';
 import Project from './components/project/project.js';
+import Login from './login';
 import './style.css';
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const [isLoggedIn, setLogin] = useState(false);
 
   return (
     <div>
@@ -12,7 +14,7 @@ function App() {
         <button onClick={(e) => setTheme(theme === 'dark' ? 'light' : 'dark')}>
           {theme}
         </button>
-        <Project id={1} />
+        {isLoggedIn ? <Project id={1} /> : <Login />}
       </ThemeContext.Provider>
     </div>
   );
